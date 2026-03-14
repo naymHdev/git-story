@@ -1,0 +1,233 @@
+GitPost AI – Frontend Routes & Backend API Endpoints (Best Practice)
+
+========================================
+1. PUBLIC FRONTEND ROUTES (MARKETING)
+========================================
+
+/
+Landing page
+
+/features
+Product features
+
+/pricing
+Pricing plans
+
+/blog
+Marketing blog
+
+/login
+User login
+
+/signup
+User registration
+
+/verify
+Account verification
+
+
+========================================
+2. USER DASHBOARD ROUTES
+========================================
+
+/dashboard
+Main dashboard overview
+
+/dashboard/repositories
+Connected GitHub repositories
+
+/dashboard/repositories/[repoId]
+Single repository details
+
+/dashboard/commits
+Commit activity
+
+/dashboard/posts
+Generated AI posts
+
+/dashboard/posts/[postId]
+Post editor
+
+/dashboard/drafts
+Saved drafts
+
+/dashboard/scheduled
+Scheduled posts
+
+/dashboard/analytics
+Usage analytics
+
+/dashboard/settings
+Account settings
+
+/dashboard/settings/profile
+User profile settings
+
+/dashboard/settings/billing
+Billing management
+
+/dashboard/settings/integrations
+External integrations
+
+
+========================================
+3. USER ONBOARDING ROUTES
+========================================
+
+/onboarding
+User onboarding start
+
+/onboarding/connect-github
+Connect GitHub account
+
+/onboarding/select-repos
+Select repositories
+
+/onboarding/complete
+Finish onboarding
+
+
+========================================
+4. BACKEND API STRUCTURE
+========================================
+
+Base API Prefix
+
+/api/v1
+
+
+========================================
+5. AUTHENTICATION ENDPOINTS
+========================================
+
+POST   /api/v1/auth/login
+POST   /api/v1/auth/logout
+GET    /api/v1/auth/session
+POST   /api/v1/auth/github
+
+
+========================================
+6. USER ENDPOINTS
+========================================
+
+GET    /api/v1/users/me
+PATCH  /api/v1/users/me
+DELETE /api/v1/users/me
+
+
+========================================
+7. REPOSITORY ENDPOINTS
+========================================
+
+GET    /api/v1/repos
+POST   /api/v1/repos/sync
+GET    /api/v1/repos/:repoId
+DELETE /api/v1/repos/:repoId
+
+
+========================================
+8. COMMIT ENDPOINTS
+========================================
+
+GET   /api/v1/repos/:repoId/commits
+GET   /api/v1/commits/:commitId
+POST  /api/v1/commits/:commitId/generate-post
+
+
+========================================
+9. AI GENERATION ENDPOINTS
+========================================
+
+POST  /api/v1/ai/generate-post
+POST  /api/v1/ai/regenerate-post
+POST  /api/v1/ai/generate-summary
+
+
+========================================
+10. POST MANAGEMENT ENDPOINTS
+========================================
+
+GET    /api/v1/posts
+POST   /api/v1/posts
+GET    /api/v1/posts/:postId
+PATCH  /api/v1/posts/:postId
+DELETE /api/v1/posts/:postId
+
+
+========================================
+11. SOCIAL PUBLISHING ENDPOINTS
+========================================
+
+POST  /api/v1/posts/:postId/publish
+POST  /api/v1/posts/:postId/schedule
+POST  /api/v1/posts/:postId/cancel-schedule
+
+
+========================================
+12. BILLING ENDPOINTS
+========================================
+
+POST  /api/v1/billing/checkout
+GET   /api/v1/billing/subscription
+POST  /api/v1/billing/cancel
+POST  /api/v1/billing/webhook
+
+
+========================================
+13. WEBHOOK ENDPOINTS
+========================================
+
+POST  /api/v1/webhooks/github
+
+
+========================================
+14. ADMIN ENDPOINTS
+========================================
+
+GET   /api/v1/admin/users
+GET   /api/v1/admin/usage
+GET   /api/v1/admin/subscriptions
+
+
+========================================
+15. BACKGROUND JOB ENDPOINTS
+========================================
+
+POST  /api/v1/jobs/sync-repos
+POST  /api/v1/jobs/generate-weekly-summary
+POST  /api/v1/jobs/publish-scheduled-posts
+
+
+========================================
+END OF DOCUMENT
+
+
+এই ফাইলের ভিতরে আছে:
+
+User-friendly frontend routes
+
+SaaS dashboard routes
+
+Onboarding routes
+
+Production-grade REST API endpoints
+
+Auth APIs
+
+GitHub repo APIs
+
+Commit APIs
+
+AI generation APIs
+
+Post management APIs
+
+Social publishing APIs
+
+Billing APIs
+
+Webhook APIs
+
+Admin APIs
+
+Background job APIs

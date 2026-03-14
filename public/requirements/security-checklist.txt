@@ -1,0 +1,188 @@
+#GitPost AI - Production Security Checklist
+
+This document provides a step-by-step guide to ensure high-level security for your Micro-SaaS project.
+
+----------------------------------------
+STEP 1: Environment Variable Security
+----------------------------------------
+1. Never commit secrets to Git.
+2. Store all secrets in .env files.
+3. Use .env.example for public repositories.
+4. Validate environment variables at startup.
+5. Use different secrets for development and production.
+
+Important secrets:
+- DATABASE_URL
+- OPENAI_API_KEY
+- GITHUB_CLIENT_SECRET
+- STRIPE_SECRET_KEY
+- NEXTAUTH_SECRET
+
+----------------------------------------
+STEP 2: Authentication Security
+----------------------------------------
+1. Use OAuth login instead of password login where possible.
+2. Enable secure cookies.
+3. Set httpOnly = true.
+4. Set sameSite = strict.
+5. Set secure = true in production.
+6. Set session expiration.
+
+----------------------------------------
+STEP 3: API Rate Limiting
+----------------------------------------
+Protect APIs from abuse.
+
+Recommended limits:
+- Auth APIs: 5 requests / minute
+- AI generation APIs: 10 requests / minute
+- Webhooks: verified only
+
+Use Redis-based rate limiting.
+
+----------------------------------------
+STEP 4: Database Security
+----------------------------------------
+1. Never expose database queries to the frontend.
+2. Only access database through server actions or backend services.
+3. Always check userId when accessing data.
+4. Prevent horizontal privilege escalation.
+
+Example rule:
+User can only access resources where:
+resource.userId == session.user.id
+
+----------------------------------------
+STEP 5: GitHub Webhook Verification
+----------------------------------------
+Always verify webhook signature.
+
+Check header:
+x-hub-signature-256
+
+Use HMAC SHA256 verification before processing webhook events.
+
+----------------------------------------
+STEP 6: Input Validation
+----------------------------------------
+Always validate user input.
+
+Use schema validation for:
+- API requests
+- Forms
+- Server actions
+
+Reject:
+- unexpected fields
+- invalid types
+- oversized payloads
+
+----------------------------------------
+STEP 7: XSS Protection
+----------------------------------------
+Sanitize user generated content.
+
+Examples:
+- markdown posts
+- comments
+- user bios
+
+Always sanitize before rendering.
+
+----------------------------------------
+STEP 8: CSRF Protection
+----------------------------------------
+Enable CSRF protection for all POST requests.
+
+Verify:
+- origin header
+- csrf token
+
+Never accept cross-origin unsafe requests.
+
+----------------------------------------
+STEP 9: AI Prompt Security
+----------------------------------------
+Prevent prompt injection attacks.
+
+Rules:
+1. Never expose system prompts.
+2. Never expose API keys.
+3. Filter suspicious instructions like:
+   - "ignore previous instructions"
+   - "reveal secrets"
+
+----------------------------------------
+STEP 10: Logging and Monitoring
+----------------------------------------
+Monitor:
+- login attempts
+- API failures
+- AI usage spikes
+
+Log important events:
+- authentication
+- billing
+- webhook events
+
+----------------------------------------
+STEP 11: Secure HTTP Headers
+----------------------------------------
+Add security headers:
+
+- X-Frame-Options: DENY
+- X-Content-Type-Options: nosniff
+- Referrer-Policy: strict-origin
+- Content-Security-Policy
+
+----------------------------------------
+STEP 12: Dependency Security
+----------------------------------------
+Regularly check for vulnerable dependencies.
+
+Run:
+- npm audit
+- dependency updates
+
+Enable automatic security updates.
+
+----------------------------------------
+STEP 13: Bot Protection
+----------------------------------------
+Prevent spam registrations.
+
+Use bot protection on:
+- signup forms
+- login attempts
+- contact forms
+
+----------------------------------------
+STEP 14: Backup Strategy
+----------------------------------------
+Always backup production data.
+
+Recommended:
+- Daily backups
+- 7 day retention
+- Offsite backup storage
+
+----------------------------------------
+STEP 15: Production Security Checklist
+----------------------------------------
+
+Before launching your SaaS ensure:
+
+[ ] HTTPS enforced
+[ ] Secure cookies enabled
+[ ] Rate limiting enabled
+[ ] Webhook signature verification
+[ ] Input validation everywhere
+[ ] XSS protection
+[ ] CSRF protection
+[ ] Secure headers configured
+[ ] Secrets stored in environment variables
+[ ] Database backups enabled
+
+----------------------------------------
+
+END OF DOCUMENT

@@ -1,0 +1,130 @@
+gitpost-ai/
+│
+├── prisma/                     # DB schema + migrations
+│   └── schema.prisma
+│
+├── public/                     # Static assets
+│
+├── src/
+│
+│   ├── app/                    # Next.js App Router (Routing only)
+│   │   ├── (marketing)/
+│   │   ├── (auth)/
+│   │   ├── (dashboard)/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   └── posts/[id]/
+│   │   │
+│   │   ├── api/                # HTTP layer only
+│   │   │   ├── auth/[...nextauth]/
+│   │   │   ├── webhooks/
+│   │   │   │   └── github/
+│   │   │   └── cron/
+│   │   │       └── publish/
+│   │   │
+│   │   └── layout.tsx
+│
+│
+│   ├── modules/                # DOMAIN MODULES (DDD structure)
+│   │
+│   │   ├── auth/
+│   │   │   ├── auth.service.ts
+│   │   │   ├── auth.repository.ts
+│   │   │   ├── auth.types.ts
+│   │   │   └── auth.constants.ts
+│   │
+│   │   ├── user/
+│   │   │   ├── user.service.ts
+│   │   │   ├── user.repository.ts
+│   │   │   ├── user.types.ts
+│   │   │   └── user.validation.ts
+│   │
+│   │   ├── github/
+│   │   │   ├── github.service.ts
+│   │   │   ├── github.repository.ts
+│   │   │   ├── github.webhook.ts
+│   │   │   ├── github.types.ts
+│   │   │   └── github.utils.ts
+│   │
+│   │   ├── ai/
+│   │   │   ├── ai.service.ts
+│   │   │   ├── prompts/
+│   │   │   │   ├── linkedin.prompt.ts
+│   │   │   │   └── twitter.prompt.ts
+│   │   │   └── ai.types.ts
+│   │
+│   │   ├── post/
+│   │   │   ├── post.service.ts
+│   │   │   ├── post.repository.ts
+│   │   │   ├── post.validation.ts
+│   │   │   └── post.types.ts
+│   │
+│   │   ├── billing/
+│   │   │   ├── billing.service.ts
+│   │   │   ├── stripe.service.ts
+│   │   │   └── billing.types.ts
+│
+│
+│   ├── infrastructure/         # External services integration
+│   │   ├── github/
+│   │   │   └── octokit.client.ts
+│   │   │
+│   │   ├── ai/
+│   │   │   └── openai.client.ts
+│   │   │
+│   │   ├── queue/
+│   │   │   └── redis.queue.ts
+│   │   │
+│   │   └── logger/
+│   │       └── logger.ts
+│
+│
+│   ├── components/             # UI Layer
+│   │   ├── ui/                 # shadcn
+│   │   ├── layout/
+│   │   └── shared/
+│
+│
+│   ├── actions/                # Server Actions
+│   │   ├── post.actions.ts
+│   │   ├── user.actions.ts
+│   │   └── github.actions.ts
+│
+│
+│   ├── lib/                    # Core utilities
+│   │   ├── prisma.ts
+│   │   ├── auth.ts
+│   │   ├── env.ts
+│   │   └── utils.ts
+│
+│
+│   ├── config/                 # Central configs
+│   │   ├── app.config.ts
+│   │   ├── billing.config.ts
+│   │   └── ai.config.ts
+│
+│
+│   ├── hooks/
+│   │
+│   ├── store/
+│   │
+│   ├── types/
+│   │
+│   ├── styles/
+│   │
+│   └── middleware.ts
+│
+│
+├── scripts/                    # Dev automation scripts
+│   ├── seed.ts
+│   └── sync-github.ts
+│
+├── tests/                      # Integration & unit tests
+│   ├── unit/
+│   └── integration/
+│
+├── .env.example
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
