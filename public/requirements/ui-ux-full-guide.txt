@@ -1,0 +1,316 @@
+# Full UI/UX Project Guide (Dark Premium Cool)
+
+Version: 1.0
+Purpose: Follow this guide to build your full project UI/UX before connecting APIs.
+
+---
+
+1. DEVELOPMENT STRATEGY
+
+---
+
+1. Build **layout and skeleton** first.
+2. Complete **auth screens**.
+3. Develop **dashboard and core pages**.
+4. Implement **tables, lists, forms**.
+5. Add **modals, toasts, and notifications**.
+6. Ensure **responsive design and dark mode**.
+7. Integrate **API and functionality last**.
+
+---
+
+2. AUTHENTICATION SCREENS
+
+---
+
+* Login, Signup, Reset Password, OTP Verification, Profile Setup
+* Clean, centered form with gradient background
+* Minimal fields, progressive disclosure
+* Error/Success states: Use --color-error / --color-success
+* Buttons: Primary and Secondary with hover states
+
+---
+
+3. DASHBOARD LAYOUT
+
+---
+
+* Sidebar (fixed, collapsible, icons + text)
+* Navbar (top, search bar, notifications, profile)
+* Main content area (grid, cards)
+* Optional footer
+
+---
+
+4. CORE FEATURE PAGES
+
+---
+
+* Analytics Overview
+* Monthly Summary
+* User Activity
+* Latest Entries / Items
+* Use **cards + grid layout**
+
+---
+
+5. TABLES & LISTS
+
+---
+
+* Sortable headers, pagination, search
+* Selectable rows, action buttons
+* Use TanStack Table or similar library
+
+---
+
+6. FORMS & INPUTS
+
+---
+
+* Label + floating placeholder
+* Validation UI (error, success)
+* Disabled & loading states
+* Clear CTA buttons
+
+---
+
+7. MODALS & POPUPS
+
+---
+
+* Confirm delete, edit details, choose options
+* Animate presence + subtle opacity transitions
+* Soft shadow and rounded corners
+
+---
+
+8. NOTIFICATIONS & TOASTS
+
+---
+
+* Top-right position
+* Auto disappear, pause on hover
+* Success / Error / Warning states
+
+---
+
+9. RESPONSIVE DESIGN
+
+---
+
+* Mobile-first approach
+* Breakpoints: Mobile (640px), Tablet (768px), Laptop (1024px), Desktop (1280px)
+* Test all sections for dark mode and different screen sizes
+
+---
+
+10. VISUAL & UX INSPIRATION
+
+---
+
+* Tailwind Admin Template: [https://github.com/adrianhajdin/project_nextjs_admin_dashboard](https://github.com/adrianhajdin/project_nextjs_admin_dashboard)
+* Shadcn UI Starter: [https://github.com/shadcn/ui](https://github.com/shadcn/ui)
+* Admin One Dashboard: [https://github.com/justboil/admin-one-react-tailwind](https://github.com/justboil/admin-one-react-tailwind)
+* Search Figma / Dribbble: "Dark admin dashboard UI", "Premium SaaS dashboard", "Dark mode UX templates"
+
+---
+
+11. UI ELEMENT CHECKLIST
+
+---
+
+* Typography hierarchy
+* Consistent spacing (8px grid)
+* Reusable buttons
+* Grid cards
+* Table actions
+* Form validation states
+* Toasts & Alerts
+* Loading skeletons
+* Gradient backgrounds
+
+---
+
+12. EXTRA UI RECOMMENDATIONS
+
+---
+
+* Skeleton loaders before API data loads
+* Step-by-step forms for better UX
+* Subtle hover and focus animations
+* Use dark mode gradients for premium feel
+
+---
+
+13. BUILD FLOW SUMMARY
+
+---
+
+1. Layout & skeleton
+2. Auth screens
+3. Dashboard + core pages
+4. Tables & forms
+5. Modals & notifications
+6. Responsive design & dark mode
+7. API integration and functionality
+
+End of document
+# Full UI/UX Project Guide (Dark Premium Cool)
+
+Version: 1.0
+Purpose: Follow this guide to build your full project UI/UX before connecting APIs.
+
+---
+
+1. DEVELOPMENT STRATEGY
+
+---
+
+1. Build **layout and skeleton** first.
+2. Complete **auth screens**.
+3. Develop **dashboard and core pages**.
+4. Implement **tables, lists, forms**.
+5. Add **modals, toasts, and notifications**.
+6. Ensure **responsive design and dark mode**.
+7. Integrate **API and functionality last**.
+
+---
+
+2. AUTHENTICATION SCREENS
+
+---
+
+* Login, Signup, Reset Password, OTP Verification, Profile Setup
+* Clean, centered form with gradient background
+* Minimal fields, progressive disclosure
+* Error/Success states: Use --color-error / --color-success
+* Buttons: Primary and Secondary with hover states
+
+---
+
+3. DASHBOARD LAYOUT
+
+---
+
+* Sidebar (fixed, collapsible, icons + text)
+* Navbar (top, search bar, notifications, profile)
+* Main content area (grid, cards)
+* Optional footer
+
+---
+
+4. CORE FEATURE PAGES
+
+---
+
+* Analytics Overview
+* Monthly Summary
+* User Activity
+* Latest Entries / Items
+* Use **cards + grid layout**
+
+---
+
+5. TABLES & LISTS
+
+---
+
+* Sortable headers, pagination, search
+* Selectable rows, action buttons
+* Use TanStack Table or similar library
+
+---
+
+6. FORMS & INPUTS
+
+---
+
+* Label + floating placeholder
+* Validation UI (error, success)
+* Disabled & loading states
+* Clear CTA buttons
+
+---
+
+7. MODALS & POPUPS
+
+---
+
+* Confirm delete, edit details, choose options
+* Animate presence + subtle opacity transitions
+* Soft shadow and rounded corners
+
+---
+
+8. NOTIFICATIONS & TOASTS
+
+---
+
+* Top-right position
+* Auto disappear, pause on hover
+* Success / Error / Warning states
+
+---
+
+9. RESPONSIVE DESIGN
+
+---
+
+* Mobile-first approach
+* Breakpoints: Mobile (640px), Tablet (768px), Laptop (1024px), Desktop (1280px)
+* Test all sections for dark mode and different screen sizes
+
+---
+
+10. VISUAL & UX INSPIRATION
+
+---
+
+* Tailwind Admin Template: [https://github.com/adrianhajdin/project_nextjs_admin_dashboard](https://github.com/adrianhajdin/project_nextjs_admin_dashboard)
+* Shadcn UI Starter: [https://github.com/shadcn/ui](https://github.com/shadcn/ui)
+* Admin One Dashboard: [https://github.com/justboil/admin-one-react-tailwind](https://github.com/justboil/admin-one-react-tailwind)
+* Search Figma / Dribbble: "Dark admin dashboard UI", "Premium SaaS dashboard", "Dark mode UX templates"
+
+---
+
+11. UI ELEMENT CHECKLIST
+
+---
+
+* Typography hierarchy
+* Consistent spacing (8px grid)
+* Reusable buttons
+* Grid cards
+* Table actions
+* Form validation states
+* Toasts & Alerts
+* Loading skeletons
+* Gradient backgrounds
+
+---
+
+12. EXTRA UI RECOMMENDATIONS
+
+---
+
+* Skeleton loaders before API data loads
+* Step-by-step forms for better UX
+* Subtle hover and focus animations
+* Use dark mode gradients for premium feel
+
+---
+
+13. BUILD FLOW SUMMARY
+
+---
+
+1. Layout & skeleton
+2. Auth screens
+3. Dashboard + core pages
+4. Tables & forms
+5. Modals & notifications
+6. Responsive design & dark mode
+7. API integration and functionality
+
+End of document
