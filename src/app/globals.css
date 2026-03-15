@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
+/* -----------------------------
+   1. Fonts
+----------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-heading: "Satoshi", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
+/* -----------------------------
+   2. Colors (Reusable)
+----------------------------- */
+:root {
+  /* Background Gradients */
+  --bg-gradient-primary: linear-gradient(135deg, #0f172a, #1e293b);
+  --bg-gradient-secondary: linear-gradient(135deg, #111827, #1e293b);
+
+  /* Backgrounds */
+  --color-background: #0f172a; /* dark primary background */
+  --color-card-bg: #1e293b; /* card / section */
+  --color-navbar-bg: #111827;
+  --color-modal-bg: #1e293b;
+
+  /* Text */
+  --color-text-primary: #f8fafc; /* bright white */
+  --color-text-secondary: #94a3b8; /* muted gray */
+  --color-text-disabled: #64748b;
+
+  /* Accent / UI elements */
+  --color-primary: #6366f1; /* Indigo */
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #06b6d4; /* Cyan */
+  --color-secondary-hover: #0e94a2;
+  --color-success: #22c55e; /* green */
+  --color-warning: #f59e0b; /* amber */
+  --color-error: #ef4444; /* red */
+
+  /* Misc / borders */
+  --color-border: #334155;
+  --color-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* -----------------------------
+   3. Font Variables for theme
+----------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
+/* -----------------------------
+   4. Dark Mode Handling
+----------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #0f172a;
+    --color-card-bg: #1e293b;
+    --color-navbar-bg: #111827;
+    --color-modal-bg: #1e293b;
+
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #94a3b8;
+    --color-text-disabled: #64748b;
+
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-secondary: #06b6d4;
+    --color-secondary-hover: #0e94a2;
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+
+    --color-border: #334155;
+    --color-shadow: rgba(0, 0, 0, 0.25);
   }
 }
 
+/* -----------------------------
+   5. Body / Global Styles
+----------------------------- */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------
+   6. Headings
+----------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* -----------------------------
+   7. Links
+----------------------------- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* -----------------------------
+   8. Buttons
+----------------------------- */
+.button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  border: none;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-primary);
+  border: none;
+}
+
+.button-secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+/* -----------------------------
+   9. Cards
+----------------------------- */
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------
+   10. Inputs / Forms
+----------------------------- */
+input,
+textarea,
+select {
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-body);
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* primary shadow */
+}
+
+/* -----------------------------
+   11. Utility Classes
+----------------------------- */
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-warning {
+  color: var(--color-warning);
 }

@@ -1,9 +1,5 @@
 # GitPost AI – Full Project Feature List
 
-This document describes the complete feature set for the GitPost AI Micro-SaaS platform.
-The goal of this SaaS is to automatically convert GitHub development activity into
-professional social media posts for developers and technical founders.
-
 ------------------------------------------------------------
 1. AUTHENTICATION FEATURES
 ------------------------------------------------------------
