@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "GitPost AI",
@@ -16,10 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
-      <body
-        className="antialiased font-body text-text-primary bg-gradient-primary"
-      >
+    <html lang="en" className={cn("dark")}>
+      <body className="antialiased font-body text-text-primary bg-gradient-primary">
         {children}
       </body>
     </html>
