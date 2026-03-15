@@ -1,32 +1,66 @@
+🏗 Final Production-Grade Structure
+
 gitpost-ai/
 │
-├── prisma/                     # DB schema + migrations
-│   └── schema.prisma
+├── prisma/                           # Database schema & migrations
+│   ├── schema.prisma
+│   └── migrations/
 │
-├── public/                     # Static assets
+├── public/                           # Static assets
 │
 ├── src/
 │
-│   ├── app/                    # Next.js App Router (Routing only)
+│   ├── app/                          # Next.js App Router (HTTP layer only)
+│   │
 │   │   ├── (marketing)/
+│   │   │   ├── page.tsx
+│   │   │   ├── pricing/
+│   │   │   └── blog/
+│   │   │
 │   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   └── verify/
+│   │   │
 │   │   ├── (dashboard)/
 │   │   │   ├── layout.tsx
 │   │   │   ├── page.tsx
-│   │   │   └── posts/[id]/
+│   │   │   ├── posts/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │
+│   │   │   ├── repositories/
+│   │   │   └── settings/
 │   │   │
-│   │   ├── api/                # HTTP layer only
-│   │   │   ├── auth/[...nextauth]/
-│   │   │   ├── webhooks/
-│   │   │   │   └── github/
-│   │   │   └── cron/
-│   │   │       └── publish/
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   │   └── [...nextauth]/
+│   │   │   │
+│   │   │   ├── github/
+│   │   │   │   ├── connect/
+│   │   │   │   └── webhook/
+│   │   │   │
+│   │   │   ├── ai/
+│   │   │   │   └── generate/
+│   │   │   │
+│   │   │   ├── posts/
+│   │   │   │   ├── create/
+│   │   │   │   ├── update/
+│   │   │   │   └── publish/
+│   │   │   │
+│   │   │   ├── billing/
+│   │   │   │   └── webhook/
+│   │   │   │
+│   │   │   ├── cron/
+│   │   │   │   └── publish/
+│   │   │   │
+│   │   │   └── health/
 │   │   │
 │   │   └── layout.tsx
 │
 │
-│   ├── modules/                # DOMAIN MODULES (DDD structure)
-│   │
+│   ├── modules/                      # DOMAIN MODULES (DDD)
+│
 │   │   ├── auth/
 │   │   │   ├── auth.service.ts
 │   │   │   ├── auth.repository.ts
@@ -36,8 +70,8 @@ gitpost-ai/
 │   │   ├── user/
 │   │   │   ├── user.service.ts
 │   │   │   ├── user.repository.ts
-│   │   │   ├── user.types.ts
-│   │   │   └── user.validation.ts
+│   │   │   ├── user.validation.ts
+│   │   │   └── user.types.ts
 │   │
 │   │   ├── github/
 │   │   │   ├── github.service.ts
@@ -48,78 +82,120 @@ gitpost-ai/
 │   │
 │   │   ├── ai/
 │   │   │   ├── ai.service.ts
-│   │   │   ├── prompts/
-│   │   │   │   ├── linkedin.prompt.ts
-│   │   │   │   └── twitter.prompt.ts
-│   │   │   └── ai.types.ts
+│   │   │   ├── ai.types.ts
+│   │   │   └── prompts/
+│   │   │       ├── linkedin.prompt.ts
+│   │   │       └── twitter.prompt.ts
 │   │
 │   │   ├── post/
 │   │   │   ├── post.service.ts
 │   │   │   ├── post.repository.ts
 │   │   │   ├── post.validation.ts
+│   │   │   ├── post.mapper.ts
 │   │   │   └── post.types.ts
 │   │
 │   │   ├── billing/
 │   │   │   ├── billing.service.ts
 │   │   │   ├── stripe.service.ts
 │   │   │   └── billing.types.ts
+│   │
+│   │   └── analytics/
+│   │       └── analytics.service.ts
 │
 │
-│   ├── infrastructure/         # External services integration
-│   │   ├── github/
-│   │   │   └── octokit.client.ts
+│   ├── infrastructure/               # External services & integrations
+│
+│   │   ├── database/
+│   │   │   └── prisma.client.ts
+│   │   │
+│   │   ├── cache/
+│   │   │   └── redis.client.ts
+│   │   │
+│   │   ├── queue/
+│   │   │   └── bullmq.queue.ts
 │   │   │
 │   │   ├── ai/
 │   │   │   └── openai.client.ts
 │   │   │
-│   │   ├── queue/
-│   │   │   └── redis.queue.ts
+│   │   ├── github/
+│   │   │   └── octokit.client.ts
 │   │   │
 │   │   └── logger/
 │   │       └── logger.ts
 │
 │
-│   ├── components/             # UI Layer
-│   │   ├── ui/                 # shadcn
+│   ├── shared/                       # Global reusable utilities
+│
+│   │   ├── constants/
+│   │   │   ├── roles.ts
+│   │   │   ├── plans.ts
+│   │   │   └── rate-limits.ts
+│   │   │
+│   │   ├── errors/
+│   │   │   ├── app-error.ts
+│   │   │   └── error-handler.ts
+│   │   │
+│   │   ├── validators/
+│   │   │   ├── auth.schema.ts
+│   │   │   └── post.schema.ts
+│   │   │
+│   │   ├── security/
+│   │   │   ├── rate-limit.ts
+│   │   │   ├── sanitize.ts
+│   │   │   └── webhook-verify.ts
+│   │   │
+│   │   └── utils/
+│   │       ├── helpers.ts
+│   │       ├── crypto.ts
+│   │       └── formatters.ts
+│
+│
+│   ├── components/                   # UI layer
+│   │   ├── ui/                       # shadcn components
 │   │   ├── layout/
-│   │   └── shared/
+│   │   ├── shared/
+│   │   └── dashboard/
 │
 │
-│   ├── actions/                # Server Actions
+│   ├── actions/                      # Next.js Server Actions
 │   │   ├── post.actions.ts
 │   │   ├── user.actions.ts
 │   │   └── github.actions.ts
 │
 │
-│   ├── lib/                    # Core utilities
-│   │   ├── prisma.ts
+│   ├── hooks/                        # React hooks
+│
+│   ├── store/                        # Redux Toolkit
+│   │   ├── store.ts
+│   │   └── slices/
+│   │       ├── authSlice.ts
+│   │       └── postSlice.ts
+│
+│
+│   ├── lib/                          # Core utilities
 │   │   ├── auth.ts
 │   │   ├── env.ts
 │   │   └── utils.ts
 │
 │
-│   ├── config/                 # Central configs
+│   ├── config/                       # Application configs
 │   │   ├── app.config.ts
-│   │   ├── billing.config.ts
-│   │   └── ai.config.ts
+│   │   ├── ai.config.ts
+│   │   └── billing.config.ts
 │
 │
-│   ├── hooks/
-│   │
-│   ├── store/
-│   │
-│   ├── types/
-│   │
-│   ├── styles/
-│   │
-│   └── middleware.ts
+│   ├── types/                        # Global TS types
+│
+│   ├── styles/                       # Global styles
+│
+│   └── middleware.ts                 # Auth + security middleware
 │
 │
-├── scripts/                    # Dev automation scripts
+├── scripts/                          # Dev automation
 │   ├── seed.ts
 │   └── sync-github.ts
 │
-├── tests/                      # Integration & unit tests
+├── tests/                            # Testing
 │   ├── unit/
 │   └── integration/
 │
@@ -127,4 +203,40 @@ gitpost-ai/
 ├── next.config.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── package.json
+├── package.json
+└── README.md
+
+🧠 Architecture Flow
+UI (components)
+      │
+      ▼
+Server Actions / API Routes
+      │
+      ▼
+Service Layer (modules)
+      │
+      ▼
+Repository Layer
+      │
+      ▼
+Infrastructure
+      │
+      ▼
+Database / Redis / AI / GitHub
+
+
+🔐 Security Layers
+
+1️⃣ Input validation (Zod)
+2️⃣ Rate limiting (Redis)
+3️⃣ GitHub webhook verification
+4️⃣ XSS sanitize markdown
+5️⃣ Environment validation
+
+
+⚡ Performance Layers
+
+Redis caching (GitHub repo list)
+BullMQ queue (AI generation)
+Lazy AI generation
+Server actions for mutations
