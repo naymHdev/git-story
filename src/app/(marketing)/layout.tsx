@@ -9,9 +9,9 @@ const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
           <header>
             <Navbar />
           </header>
-          <main className=" min-h-screen">{children}</main>
+          <main className=" min-h-screen relative">{children}</main>
           <footer>
-            <Footer />
+            <Footer />{" "}
           </footer>
         </body>
       </html>

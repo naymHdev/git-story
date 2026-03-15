@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("dark")}>
-      <body className="antialiased font-body text-text-primary bg-gradient-primary">
+      <body className="antialiased font-body text-text-primary bg-gradient-primary relative">
         {children}
       </body>
     </html>
