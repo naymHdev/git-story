@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <>
       <header className=" border-b border-secondary">
-        <GPContainer>
+        <GPContainer className="">
           <div className=" flex items-center justify-between">
             {/*  --------- Logo --------- */}
             <div>
