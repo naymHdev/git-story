@@ -117,7 +117,7 @@ function ThemeToggle() {
   ];
 
   return (
-    <div className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 p-1">
+    <div className="flex items-center gap-1 rounded-none border border-white/10 bg-white/5 p-1">
       {options.map(({ value, icon: Icon }) => (
         <button
           key={value}
@@ -145,7 +145,7 @@ function LanguageSelect() {
     <div className="relative">
       <button
         onClick={() => setOpen((p) => !p)}
-        className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60 transition-colors hover:text-white/90"
+        className="flex items-center gap-1.5 rounded-none border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white/60 transition-colors hover:text-white/90"
       >
         <Globe size={13} strokeWidth={1.8} />
         <span>{selected}</span>
@@ -161,7 +161,7 @@ function LanguageSelect() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.15 }}
-          className="absolute bottom-full mb-1 right-0 w-32 rounded-lg border border-white/10 bg-[#141414] py-1 shadow-xl z-50"
+          className="absolute bottom-full mb-1 right-0 w-32 rounded-none border border-white/10 bg-[#141414] py-1 shadow-xl z-50"
         >
           {languages.map((lang) => (
             <li key={lang}>
@@ -209,9 +209,9 @@ const Footer = () => {
               href="#"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex w-full max-w-[240px] items-center justify-between rounded-lg border border-white/15 bg-white/[0.04] px-4 py-2.5 text-sm text-white/80 transition-colors hover:border-white/25 hover:bg-white/[0.07]"
+              className="group flex w-full max-w-[240px] items-center justify-between rounded-none border border-white/15 bg-white/[0.04] px-4 py-2.5 text-sm text-white/80 transition-colors hover:border-white/25 hover:bg-white/[0.07]"
             >
-              <span className="font-mono text-sm tracking-wide">
+              <span className="font-mono text-secondary text-sm tracking-wide">
                 Join Discord
               </span>
               <ChevronRight
@@ -277,9 +277,11 @@ const Footer = () => {
                 aria-label={label}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.94 }}
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-white/45 transition-colors hover:border-white/20 hover:text-white/80"
+                className="flex h-8 w-8 items-center justify-center rounded-none border border-white/10 bg-white/4  transition-colors hover:border-white/20 hover:text-white/80"
               >
-                <Icon size={14} />
+                <span className="text-primary">
+                  <Icon size={14} />
+                </span>
               </motion.a>
             ))}
           </div>
