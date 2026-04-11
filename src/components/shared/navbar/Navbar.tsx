@@ -21,8 +21,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <>
-      <header className=" border-b border-secondary">
-        <GPContainer className="">
+      <header className="">
+        <GPContainer padding="sm" className=" border-b border-secondary">
           <div className=" flex items-center justify-between">
             {/*  --------- Logo --------- */}
             <div>
