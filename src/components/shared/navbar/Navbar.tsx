@@ -45,7 +45,7 @@ const Navbar = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={clsx(
-          "sticky top-0 z-50 border-b border-border backdrop-blur-md transition-shadow duration-300",
+          "sticky top-0 z-50 border-b border-linkedin/70 backdrop-blur-md transition-shadow duration-300",
           scrolled && "shadow-sm",
         )}
       >

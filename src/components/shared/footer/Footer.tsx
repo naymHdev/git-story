@@ -9,8 +9,8 @@ import {
   Sun,
   Moon,
   Globe,
-  ChevronRight,
   ChevronDown,
+  ArrowBigRightDash,
 } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import { useState } from "react";
@@ -96,7 +96,7 @@ const itemVariants = {
   },
 };
 
-const wordmarkVariants = {
+const wordMarkVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
@@ -124,8 +124,8 @@ function ThemeToggle() {
           onClick={() => setActive(value)}
           className={`relative rounded-md p-1.5 transition-all duration-200 ${
             active === value
-              ? "bg-[#22c55e]/20 text-[#22c55e]"
-              : "text-white/40 hover:text-white/70"
+              ? "bg-linkedin/20 text-linkedin"
+              : " text-primary hover:text-white/70"
           }`}
           aria-label={`${value} theme`}
         >
@@ -171,7 +171,7 @@ function LanguageSelect() {
                   setOpen(false);
                 }}
                 className={`w-full px-3 py-1.5 text-left text-xs transition-colors hover:bg-white/5 ${
-                  selected === lang ? "text-[#22c55e]" : "text-white/60"
+                  selected === lang ? "text-linkedin" : " text-primary"
                 }`}
               >
                 {lang}
@@ -188,7 +188,7 @@ function LanguageSelect() {
 
 const Footer = () => {
   return (
-    <footer className="relative w-full border-t border-secondary  overflow-hidden">
+    <footer className="relative w-full border-t border-linkedin/70  overflow-hidden">
       <GPContainer>
         {/* ── Top grid ── */}
         <motion.div
@@ -196,7 +196,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 gap-10 pt-14 pb-10 md:grid-cols-[1fr_repeat(4,auto)] md:gap-16"
+          className="grid grid-cols-1 gap-10 pt-14 pb-10 md:grid-cols-[1fr_repeat(6,auto)] md:gap-16 divide-x divide-border"
         >
           {/* Left: Stay Updated */}
           <motion.div variants={itemVariants} className="flex flex-col gap-5">
@@ -209,14 +209,14 @@ const Footer = () => {
               href="#"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex w-full max-w-[240px] items-center justify-between rounded-none border border-white/15 bg-white/[0.04] px-4 py-2.5 text-sm text-white/80 transition-colors hover:border-white/25 hover:bg-white/[0.07]"
+              className="group flex w-full max-w-60 items-center justify-between rounded-none border border-white/15 px-4 py-2.5 text-sm bg-primary text-background transition-colors hover:bg-primary/80"
             >
-              <span className="font-mono text-secondary text-sm tracking-wide">
+              <span className="font-mono text-background text-sm tracking-wide">
                 Join Discord
               </span>
-              <ChevronRight
+              <ArrowBigRightDash
                 size={15}
-                className="text-white/40 transition-transform group-hover:translate-x-0.5"
+                className=" text-background transition-transform group-hover:translate-x-0.5"
               />
             </motion.a>
 
@@ -236,17 +236,17 @@ const Footer = () => {
             <motion.div
               key={col.title}
               variants={itemVariants}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-4 pr-5"
             >
-              <h3 className="text-[13px] font-medium text-primary">
-                {col.title}
+              <h3 className="text-[13px] font-semibold">
+                <span className="text-linkedin">{col.title}</span>
               </h3>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[13.5px] text-white/55 transition-colors duration-150 hover:text-white/90"
+                      className="text-[13.5px] transition-colors duration-150 hover:text-white/90"
                     >
                       <span className="text-secondary">{link.label}</span>
                     </a>
@@ -258,7 +258,7 @@ const Footer = () => {
         </motion.div>
 
         {/* ── Divider ── */}
-        <div className="h-px w-full bg-white/[0.06]" />
+        <div className="h-px w-full bg-white/6" />
 
         {/* ── Bottom bar ── */}
         <motion.div
@@ -266,7 +266,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col items-start gap-4 py-5 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col items-start gap-4 py-5 sm:flex-row sm:items-center sm:justify-between border-b"
         >
           {/* Social icons */}
           <div className="flex items-center gap-1">
@@ -290,16 +290,16 @@ const Footer = () => {
           <div className="flex flex-wrap items-center gap-3">
             <ThemeToggle />
             <LanguageSelect />
-            <span className="text-xs text-white/35 font-mono">
+            <span className="text-xs text-secondary font-mono">
               Copyright © 2026 GitPostAI
             </span>
           </div>
         </motion.div>
       </GPContainer>
 
-      {/* ── Watermark wordmark ── */}
+      {/* ── Watermark word mark ── */}
       <motion.div
-        variants={wordmarkVariants}
+        variants={wordMarkVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -307,8 +307,8 @@ const Footer = () => {
         className="pointer-events-none select-none overflow-hidden"
       >
         <p
-          className="whitespace-nowrap text-center font-black uppercase leading-none tracking-tighter text-white/[0.04]"
-          style={{ fontSize: "clamp(64px, 14vw, 180px)" }}
+          className="whitespace-nowrap text-center font-black uppercase leading-none tracking-tighter text-white/4"
+          style={{ fontSize: "clamp(64px, 14vw, 280px)" }}
         >
           GitPostAI
         </p>
