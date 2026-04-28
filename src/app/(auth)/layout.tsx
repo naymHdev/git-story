@@ -70,20 +70,26 @@ export default function AuthLayout({
               workflow
             </h1>
             <p className="text-[#94a3b8] text-base leading-relaxed max-w-sm">
-              Turn every commit, PR, and release into a polished LinkedIn post
-              — automatically, with zero extra effort.
+              Turn every commit, PR, and release into a polished LinkedIn post —
+              automatically, with zero extra effort.
             </p>
           </div>
 
           {/* Feature list */}
           <ul className="space-y-3">
             {[
-              { icon: "⚡", text: "Instant AI post generation from GitHub events" },
+              {
+                icon: "⚡",
+                text: "Instant AI post generation from GitHub events",
+              },
               { icon: "🎯", text: "Smart scheduling for maximum engagement" },
               { icon: "📊", text: "Analytics to track your developer brand" },
               { icon: "🔒", text: "Secure OAuth — no passwords stored" },
             ].map(({ icon, text }) => (
-              <li key={text} className="flex items-start gap-3 text-sm text-[#94a3b8]">
+              <li
+                key={text}
+                className="flex items-start gap-3 text-sm text-[#94a3b8]"
+              >
                 <span className="text-base leading-none mt-0.5">{icon}</span>
                 <span>{text}</span>
               </li>
@@ -99,7 +105,7 @@ export default function AuthLayout({
             thing.&rdquo;
           </p>
           <div className="flex items-center gap-3">
-            <div className="size-8 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
+            <div className="size-8 rounded-full bg-linear-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
               AK
             </div>
             <div>

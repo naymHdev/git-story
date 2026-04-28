@@ -1,8 +1,11 @@
+import Blogs from "./_components";
 
-const BlogsPage = () => {
+const page = () => {
   return (
-    <>BlogsPage</>
-);
+    <>
+      <Blogs />
+    </>
+  );
 };
 
-export default BlogsPage;
+export default page;

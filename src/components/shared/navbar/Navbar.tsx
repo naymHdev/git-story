@@ -9,13 +9,13 @@ import { Menu, X, Zap, ChevronRight } from "lucide-react";
 import clsx from "clsx";
 
 const navMenus = [
-  { name: "Features", href: "#features" },
-  { name: "Workflow", href: "#workflow" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Docs", href: "#docs" },
-  { name: "Blog", href: "#blog" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Features", href: "/features" },
+  { name: "Workflow", href: "/work-flow" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Docs", href: "/docs" },
+  { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -101,12 +101,16 @@ const Navbar = () => {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-2">
-              <GPButton className="bg-gradient-primary  hover:bg-secondary border-secondary border px-12">
-                Sign In
-              </GPButton>
-              <GPButton className=" bg-primary text-background hover:bg-text-disabled hover:opacity-80">
-                Get Started Free
-              </GPButton>
+              <Link href={"/sign-in"}>
+                <GPButton className="bg-gradient-primary  hover:bg-secondary border-secondary border px-12">
+                  Sign In
+                </GPButton>
+              </Link>
+              <Link href={"/sign-up"}>
+                <GPButton className=" bg-primary text-background hover:bg-text-disabled hover:opacity-80">
+                  Get Started Free
+                </GPButton>
+              </Link>
             </div>
 
             {/* Mobile hamburger */}
