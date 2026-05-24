@@ -1,22 +1,9 @@
-import Footer from "@/src/components/shared/footer/Footer";
-import Navbar from "@/src/components/shared/navbar/Navbar";
+import { ReactNode } from "react";
 
-const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <html lang="en">
-        <body>
-          <header>
-            <Navbar />
-          </header>
-          <main className=" min-h-screen relative">{children}</main>
-          <footer>
-            <Footer />{" "}
-          </footer>
-        </body>
-      </html>
-    </>
-  );
-};
+interface MarketingLayoutProps {
+  children: ReactNode;
+}
 
-export default MarketingLayout;
+export default function MarketingLayout({ children }: MarketingLayoutProps) {
+  return children;
+}
